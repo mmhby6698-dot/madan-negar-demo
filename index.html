@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>معدن‌نگار | سنگ تزئینی از معدن تا اسلب — نمونه دمو</title>
+<meta name="description" content="نمونه‌کار طراحی وب: سایت شرکت معدن و سنگ تزئینی با استودیوی اسلب تعاملی، بوک‌مچ، پرداخت سطح، نقشه‌ی معادن و سازنده‌ی استعلام. دمو است و شرکت واقعی نیست.">
+<meta name="theme-color" content="#1b1a18">
+<meta property="og:title" content="معدن‌نگار — نمونه دمو">
+<meta property="og:description" content="اسلب را قبل از خرید روی دیوار و کف خودت ببین.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Vazirmatn-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">پرش به محتوا</a>
+<div class="demo-bar" role="note">نمونه دمو — شرکت، کدها، اعداد و اطلاعات تماس این صفحه فرضی‌اند</div>
+<header class="top">
+  <a class="logo" href="#top" aria-label="معدن‌نگار، بازگشت به بالا"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M0 11h32M0 18h32M0 25h32" stroke="currentColor" stroke-opacity=".35" stroke-width="2"/><path d="M5 29 16 4l11 25" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg><b>معدن‌نگار</b></a>
+  <nav aria-label="منوی اصلی">
+    <a href="#studio">استودیوی اسلب</a><a href="#finder">سنگت را پیدا کن</a><a href="#map">معادن</a><a href="#process">از بلوک تا اسلب</a><a class="cta" href="#inquiry">استعلام</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="h1">
+  <div class="hero-pin">
+    <svg class="strata" id="strata" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+    <div class="core" aria-hidden="true"><i id="coreFill"></i></div>
+    <div class="depth" aria-hidden="true">عمق <b id="depth">۰</b> متر</div>
+    <div class="hero-copy">
+      <p class="eyebrow">معدن · فرآوری · اسلب و تایل</p>
+      <h1 id="h1">سنگ را<br>از دلِ زمین<br><em>تا دیوار خانه‌ات</em> ببین.</h1>
+      <p class="lead">پیش از سفارش، اسلب را با پرداخت دلخواه روی دیوار و کف ببین، بوک‌مچش کن و یک استعلام دقیق بساز.</p>
+      <div class="hero-cta"><a class="btn" href="#studio">ورود به استودیوی اسلب</a><a class="link" href="#finder">کدام سنگ برای کار من؟</a></div>
+    </div>
+    <p class="scroll-hint" aria-hidden="true">اسکرول کن؛ لایه‌ها کنار می‌روند ↓</p>
+  </div>
+</section>
+
+<section class="studio" id="studio" aria-labelledby="st-h">
+  <div class="sec-head"><span class="no">۰۱</span><h2 id="st-h">استودیوی اسلب</h2><p>سنگ، پرداخت و چیدمان را عوض کن. ماوس یا انگشتت را روی اسلب بکش تا نورِ اسکن را ببینی.</p></div>
+  <div class="studio-grid">
+    <div class="slab-wrap">
+      <div class="slab" id="slab">
+        <canvas id="slabCv" width="960" height="540" role="img" aria-label="نمای اسلب سنگ انتخاب‌شده"></canvas>
+        <div class="scan" id="scan" aria-hidden="true"></div>
+        <span class="code" id="slabCode">MN-TR-01</span>
+      </div>
+      <div class="rooms" role="tablist" aria-label="نمایش اسلب در فضا">
+        <button role="tab" aria-selected="true" data-room="slab">خودِ اسلب</button>
+        <button role="tab" aria-selected="false" data-room="interior">فضای داخلی</button>
+        <button role="tab" aria-selected="false" data-room="facade">نمای ساختمان</button>
+      </div>
+      <div class="room" id="room" hidden>
+        <div class="interior" id="interior" aria-label="پیش‌نمایش سنگ روی دیوار، کف و کانتر" role="img">
+          <div class="wall"></div><div class="floor"></div><div class="island"><i></i></div><div class="lamp"></div>
+        </div>
+        <svg class="facade" id="facade" viewBox="0 0 600 380" role="img" aria-label="پیش‌نمایش سنگ روی نمای ساختمان" hidden></svg>
+      </div>
+    </div>
+    <div class="panel">
+      <fieldset><legend>سنگ</legend><div class="stones" id="stones"></div></fieldset>
+      <fieldset><legend>پرداخت سطح</legend><div class="seg" id="finishes"></div></fieldset>
+      <div class="toggles">
+        <label class="sw"><input type="checkbox" id="book"><span></span>بوک‌مچ (دو اسلب قرینه)</label>
+        <label class="sw"><input type="checkbox" id="grid"><span></span>نمایش برش تایل ۶۰×۶۰</label>
+      </div>
+      <dl class="spec" id="spec" aria-live="polite"></dl>
+      <p class="note">بافت‌ها با کد ساخته شده‌اند و رنگ واقعی هر بچ سنگ متفاوت است. مقادیر سختی تقریبی و عمومی‌اند.</p>
+    </div>
+  </div>
+</section>
+
+<section class="finder" id="finder" aria-labelledby="f-h">
+  <div class="sec-head"><span class="no">۰۲</span><h2 id="f-h">سنگت را پیدا کن</h2><p>دو سؤال؛ جواب با دلیل. روی هر پیشنهاد بزنی، در استودیو باز می‌شود.</p></div>
+  <div class="finder-grid">
+    <fieldset><legend>کجا مصرف می‌شود؟</legend><div class="chips" id="fUse"></div></fieldset>
+    <fieldset><legend>چه حسی بدهد؟</legend><div class="chips" id="fTone"></div></fieldset>
+    <ol class="results" id="fRes" aria-live="polite"></ol>
+  </div>
+  <p class="note">این راهنما کلی است و جای نظر کارشناس در محل پروژه را نمی‌گیرد.</p>
+</section>
+
+<section class="map" id="map" aria-labelledby="m-h">
+  <div class="sec-head"><span class="no">۰۳</span><h2 id="m-h">نقشه‌ی معادن و سنگ‌ها</h2><p>نقطه‌ها مناطق شناخته‌شده‌ی سنگ تزئینی در ایران‌اند؛ معادنِ این شرکتِ خیالی نیستند.</p></div>
+  <div class="map-grid">
+    <svg id="iran" viewBox="0 0 600 520" role="group" aria-label="نقشه‌ی نقطه‌ای ایران با مناطق سنگ"></svg>
+    <article class="site-card" id="siteCard" aria-live="polite"></article>
+  </div>
+</section>
+
+<section class="process" id="process" aria-labelledby="p-h">
+  <div class="sec-head"><span class="no">۰۴</span><h2 id="p-h">از بلوک تا اسلب</h2><p>هر مرحله یک برگه‌ی کیفیت دارد؛ همان که پای قرارداد تحویل می‌شود.</p></div>
+  <ol class="steps">
+    <li><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M6 50 22 18l10 14 8-10 14 28Z"/></svg><b>استخراج کوپ</b><p>برش کوپ با سیم‌الماس، علامت‌گذاری و ثبت شناسنامه‌ی بلوک.</p></li>
+    <li><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="10" y="14" width="40" height="34"/><path d="M10 22h40M10 30h40M10 38h40"/></svg><b>برش به اسلب</b><p>اره‌ی گنگ یا ساب؛ ضخامت ۲ تا ۴ سانتی‌متر.</p></li>
+    <li><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 8c10 14 14 22 14 30a14 14 0 0 1-28 0c0-8 4-16 14-30Z"/></svg><b>تقویت با رزین</b><p>پر کردن ترک‌های ریز و حفره‌ها پیش از پرداخت.</p></li>
+    <li><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="18"/><path d="M30 12v36M12 30h36"/></svg><b>ساب و پرداخت</b><p>صیقلی، مات، تیشه‌ای یا چرمی؛ طبق کاربرد.</p></li>
+    <li><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M10 20h40v28H10zM10 20l8-10h24l8 10"/></svg><b>کنترل و بسته‌بندی</b><p>یک بچ رنگی برای کل پروژه، شماره‌گذاری اسلب‌ها.</p></li>
+  </ol>
+</section>
+
+<section class="inquiry" id="inquiry" aria-labelledby="i-h">
+  <div class="sec-head"><span class="no">۰۵</span><h2 id="i-h">استعلامِ دقیق بساز</h2><p>به‌جای «قیمت سنگ چند؟»، یک درخواست کامل که فروش بتواند همان روز جواب بدهد.</p></div>
+  <div class="inq-grid">
+    <form id="inq" novalidate>
+      <label>سنگ<select id="qStone"></select></label>
+      <label>پرداخت<select id="qFinish"></select></label>
+      <label>فرم<select id="qForm"><option>اسلب</option><option>تایل ۶۰×۶۰</option><option>تایل ۴۰×۴۰</option><option>پله و قرنیز</option></select></label>
+      <label>ضخامت<select id="qThick"><option>۲ سانتی‌متر</option><option selected>۳ سانتی‌متر</option><option>۴ سانتی‌متر</option></select></label>
+      <label>متراژ تقریبی (مترمربع)<input id="qArea" inputmode="numeric" value="120" aria-describedby="areaHelp"></label>
+      <label>شهر پروژه<input id="qCity" value="اصفهان" autocomplete="address-level2"></label>
+      <p class="help" id="areaHelp">برای سفارش اسلب معمولاً حدود ۱۰٪ دورریز برش در نظر گرفته می‌شود؛ پیش‌نویس آن را جدا نشان می‌دهد.</p>
+    </form>
+    <div class="ticket">
+      <div class="ticket-head"><span>پیش‌نویس استعلام</span><span class="ltr" id="tNo">REQ-0000</span></div>
+      <pre id="draft" aria-live="polite"></pre>
+      <div class="ticket-act"><button class="btn" id="copy" type="button">کپی متن</button><span class="note">نمایشی؛ برای کسی ارسال نمی‌شود.</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div><b>معدن‌نگار</b> — نمونه‌کار طراحی وب · شرکت خیالی</div>
+  <div class="ltr">0900-000-0000 · demo@example.com</div>
+  <div><a href="https://mmhby6698-dot.github.io/shopino-web/">طراحی و ساخت: شاپینو</a></div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/app.js"></script>
+</body>
+</html>
